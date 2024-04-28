@@ -5,14 +5,14 @@
 		String a =(String) session.getAttribute("isAuthenticated");
 		if(a.equals("1")){
 %>
-		<!DOCTYPE html>
+	<!DOCTYPE html>
 	<html>
 	<head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	</head>
 	<body>
-		<h1>Hello from this side</h1>
+		<h1>This is the dashboard page;</h1>
 <%
 	}else{
 			response.getWriter().append("failed please get back to login page and login: ").append(request.getContextPath()); 
