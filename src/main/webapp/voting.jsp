@@ -107,7 +107,7 @@
         <aside>
             <h2>User Details</h2>
             <!-- Replace with user details -->
-            <p>Username: <% String temp  = (String) request.getAttribute("userName"); out.println(temp);%></p>
+            <p>Username: <% String temp2 = "-1";  String temp  = (String) request.getAttribute("userName"); out.println(temp);%></p>
             <p>Contact Number: <% String temp1  = (String) request.getAttribute("contactNo"); out.println(temp1);%></p>
             <!-- Add more user details as needed -->
 
@@ -135,12 +135,13 @@
                 	%>
                     <li>
                         <input type="radio" id="0" name="party" value="0">
-                        <label for="party1">NOTA</label>
+                        <label for="0">NOTA</label>
                     </li>
-                    
+                    </ul>
+                    <input type="hidden" id="UserEid" name="txtUserId" value="<% out.println(session.getAttribute("userEid")); %>">
+            		<% request.setAttribute("userId", temp2); %>
                     <!-- Add more parties as needed -->
-                </ul>
-                <button type="submit" "vote-btn">Vote</button>
+                <button type="submit" class="vote-btn">Vote</button>
                 </form><%}else{
                 	out.println("<h1>You have Already Voted</h1>");
                 }  %>

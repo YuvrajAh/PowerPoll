@@ -60,4 +60,26 @@ public class VotingPageMethods {
 		}
 		return details;
 	}
+	
+	public static String[] getUserdetails(String userId) {
+		String[] details =new String[3];
+		try {
+			String userName="";
+			String contactNo="";
+			String voteStatus ="";
+			ResultSet rs= st.executeQuery("Select user_id,user_name,contact_no,vote_status from user_master where user_id ="+userId+" ;");
+			while(rs.next()) {
+				userName = rs.getString("user_name");
+				contactNo = rs.getString("contact_no");
+				voteStatus = "" + rs.getBoolean("vote_status");
+				System.out.println("Vote Status: "+voteStatus);
+			}
+			details[0] = userName;
+			details[1] = contactNo;
+			details[2] = voteStatus;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+		}
+		return details;
+	}
 }
